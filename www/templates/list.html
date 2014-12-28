@@ -1,0 +1,16 @@
+<ion-view title="Warriors">
+    <ion-content padding="true" class="has-header">
+        <ion-list>
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="Search">
+                <button class="button button-clear">X</button>
+            </label>
+            <ion-item ng-repeat="employee in employees" class="item-thumbnail-left" href="#/list/{{employee.id}}" >
+                <img src="/img/avatar-img.png">
+                <h2>{{employee.name}}</h2>
+                <p>Front-end</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
