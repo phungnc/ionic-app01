@@ -46,7 +46,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
           templateUrl: 'templates/rank.html',
           controller: 'EmployeeRankController'
         })
-
+        .state('ranks', {
+          url: '/ranks',
+          templateUrl: 'templates/ranks.html',
+          controller: 'RanksController'
+        })
     $urlRouterProvider.otherwise('/');
 
 });

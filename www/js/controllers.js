@@ -10,4 +10,8 @@ angular.module('app.controllers', [])
   })
   .controller('EmployeeRankController', function($scope, $stateParams, Employees) {
     $scope.rank = Employees.get({employeeId: $stateParams.employeeId, data: 'rank'});
+  })
+
+  .controller('RanksController', function($scope, Ranks) {
+    $scope.rank = Ranks.query();
   });
