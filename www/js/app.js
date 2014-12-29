@@ -24,24 +24,27 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
     $stateProvider
 
         .state('/', {
-          url: '',
+          url: '/',
           templateUrl: 'templates/list.html',
           controller: 'EmployeesController'
         })
 
-        .state('list', {
-          url: '/list',
-          templateUrl: 'templates/list.html'
+        .state('employees', {
+          url: '/employees',
+          templateUrl: 'templates/list.html',
+          controller: 'EmployeesController'
         })
 
         .state('item', {
-          url: '/list/:id',
-          templateUrl: 'templates/item.html'
+          url: '/employees/:employeeId',
+          templateUrl: 'templates/item.html',
+          controller: 'EmployeeController'
         })
 
         .state('rank', {
-          url: '/list/:id/rank',
-          templateUrl: 'templates/rank.html'
+          url: '/employees/:employeeId/rank',
+          templateUrl: 'templates/rank.html',
+          controller: 'EmployeeRankController'
         })
 
     $urlRouterProvider.otherwise('/');
