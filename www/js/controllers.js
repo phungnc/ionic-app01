@@ -1,9 +1,7 @@
 angular.module('app.controllers', [])
   .controller('EmployeesController', function($scope, Employees) {
-    $scope.searchKey = "";
-
+    //$scope.searchKey = "";
     $scope.employees = Employees.query();
-
   })
   .controller('EmployeeController', function($scope, $stateParams, Employees) {
     $scope.employee = Employees.get({employeeId: $stateParams.employeeId});
@@ -11,7 +9,6 @@ angular.module('app.controllers', [])
   .controller('EmployeeRankController', function($scope, $stateParams, Employees) {
     $scope.rank = Employees.get({employeeId: $stateParams.employeeId, data: 'rank'});
   })
-
   .controller('RanksController', function($scope, Ranks) {
-    $scope.rank = Ranks.query();
+    $scope.ranks = Ranks.query();
   });
