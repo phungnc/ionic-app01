@@ -1,15 +1,15 @@
-<ion-view title="Ranks">
+<ion-view title="{{ranks[rankId].title}}">
     <ion-content padding="true" class="has-header">
-        <div class="content">
-            <p>Ability to communicate with others (both orally and by writing; in English/Japanese/... and native language).</p>
+        <div class="content padding">
+            <p>{{ranks[rankId].description}}</p>
         </div>
         <ion-list>
-            <ion-item>Level 0</ion-item>
-            <ion-item>Level 1</ion-item>
-            <ion-item>Level 2</ion-item>
-            <ion-item>Level 3</ion-item>
-            <ion-item>Level 4</ion-item>
-            <ion-item>Level 5</ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(ranks[rankId].level)"></ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(1)">Level 1</ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(2)">Level 2</ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(3)">Level 3</ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(4)">Level 4</ion-item>
+          <ion-item ng-controller='RankModalController' ng-click="openModal(5)">Level 5</ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

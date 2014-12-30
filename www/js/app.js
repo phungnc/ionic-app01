@@ -25,32 +25,34 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
 
         .state('/', {
           url: '/',
-          templateUrl: 'templates/list.html',
+          templateUrl: 'templates/employees.html',
           controller: 'EmployeesController'
         })
 
         .state('employees', {
           url: '/employees',
-          templateUrl: 'templates/list.html',
+          templateUrl: 'templates/employees.html',
           controller: 'EmployeesController'
         })
 
-        .state('item', {
+        .state('employee', {
           url: '/employees/:employeeId',
-          templateUrl: 'templates/item.html',
+          templateUrl: 'templates/employee.html',
           controller: 'EmployeeController'
         })
 
-        .state('rank', {
+        .state('employee-rank', {
           url: '/employees/:employeeId/rank',
-          templateUrl: 'templates/rank.html',
+          templateUrl: 'templates/employee-rank.html',
           controller: 'EmployeeRankController'
         })
-        .state('ranks', {
-          url: '/ranks',
+
+        .state('rank', {
+          url: '/ranks/:rankId',
           templateUrl: 'templates/ranks.html',
           controller: 'RanksController'
-        })
+        });
+
     $urlRouterProvider.otherwise('/');
 
 });
