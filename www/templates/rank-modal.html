@@ -1,15 +1,14 @@
 <ion-modal-view>
   <ion-header-bar class="bar-stable">
-    <h1 class="title">rank</h1>
+    <h1 class="title">Level {{levelId}}</h1>
     <div class="buttons">
       <button class="button button-stable button-clear" ng-click="modal.hide()">Close</button>
     </div>
   </ion-header-bar>
   <ion-content padding="true" scroll="false" class="has-header">
-    <h1>Level</h1>
+    <h1></h1>
     <div>
-      <p>
-        {{level}}
+      <p ng-bind-html="thisCanBeusedInsideNgBindHtml">
       </p>
     </div>
   </ion-content>

@@ -1,15 +1,63 @@
-<ion-view title="{{ranks[rankId].title}}">
+<ion-view title="ranks[rankId].title">
     <ion-content padding="true" class="has-header">
         <div class="content padding">
             <p>{{ranks[rankId].description}}</p>
         </div>
         <ion-list>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(ranks[rankId].level)"></ion-item>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(1)">Level 1</ion-item>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(2)">Level 2</ion-item>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(3)">Level 3</ion-item>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(4)">Level 4</ion-item>
-          <ion-item ng-controller='RankModalController' ng-click="openModal(5)">Level 5</ion-item>
+          <ion-item class="item-icon-left">
+            <h2>Level 0</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon"></i>
+            <p ng-bind-html="level0"></p>
+          </ion-item>
+
+          <ion-item class="item-icon-left">
+            <h2>Level 1</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon"></i>
+            <p ng-bind-html="level1"></p>
+          </ion-item>
+
+          <ion-item class="item-icon-left">
+            <h2>Level 2</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon ion-checkmark"></i>
+            <p ng-bind-html="level2"></p>
+          </ion-item>
+
+          <ion-item class="item-icon-left">
+            <h2>Level 3</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon"></i>
+            <p ng-bind-html="level3"></p>
+          </ion-item>
+
+          <ion-item class="item-icon-left">
+            <h2>Level 4</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon"></i>
+            <p ng-bind-html="level4"></p>
+          </ion-item>
+
+          <ion-item class="item-icon-left">
+            <h2>Level 5</h2>
+            <input type="radio" name="group">
+            <i class="icon radio-icon positive-icon"></i>
+            <p ng-bind-html="level5"></p>
+          </ion-item>
+
+
+            <label class="item item-radio item-icon-left">
+              <input type="radio" name="group" value="level5">
+              <div class="item-content">
+                <h2>Level 5</h2>
+                <p ng-bind-html="level5"></p>
+              </div>
+              <i class="icon radio-icon ion-checkmark"></i>
+            </label>
+
+
+
         </ion-list>
     </ion-content>
 </ion-view>
