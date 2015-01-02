@@ -11,17 +11,22 @@ angular.module('app.controllers', [])
   })
   .controller('RanksController',['$scope', '$stateParams', 'Ranks' ,'$sce',  function($scope, $stateParams, Ranks, $sce) {
 
-    $scope.ranks = Ranks.query(function(ranks){
+    $scope.rankId = $stateParams.rankId;
+    $scope.title = "Autonomous";
+    $scope.ranks = Ranks.query(function(ranks) {
       $scope.level0 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level0);
       $scope.level1 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level1);
       $scope.level2 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level2);
       $scope.level3 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level3);
       $scope.level4 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level4);
       $scope.level5 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level5);
+      //$scope.title = ranks[$stateParams.rankId].title;
     });
 
-    $scope.rankId = $stateParams.rankId;
   }])
+
+
+
 
   .controller('RankModalController',['$scope', '$ionicModal','$sce', function($scope, $ionicModal, $sce) {
 
