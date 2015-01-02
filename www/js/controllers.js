@@ -1,11 +1,27 @@
-angular.module('app.controllers', [])
-  .controller('EmployeesController', function($scope, Employees) {
+var app = angular.module('app.controllers', ['ui.radialplot'])
+
+  app.controller('EmployeesController', function($scope, Employees) {
     //$scope.searchKey = "";
     $scope.employees = Employees.query();
   })
   .controller('EmployeeController', function($scope, $stateParams, Employees) {
-    $scope.employee = Employees.get({employeeId: $stateParams.employeeId});
+    $scope.employee = Employees.get({employeeId: $stateParams.employeeId}, function(employee) {
+
+
+
+    $scope.dataset_a =  {
+      d0: { id: 0, name: 'Technical', value: employee.competencies[0].level},
+      d1: { id: 1, name: 'Autonomous', value: employee.competencies[1].level},
+      d2: { id: 2, name: 'Leadership', value: employee.competencies[2].level},
+      d3: { id: 3, name: 'Communication', value: employee.competencies[3].level},
+      d4: { id: 4, name: 'Training', value: employee.competencies[4].level},
+      d5: { id: 5, name: 'Cooperation', value: employee.competencies[5].level},
+      d6: { id: 6, name: 'Experience', value: employee.competencies[6].level},
+    };
+
+    });
   })
+
   .controller('EmployeeRankController', function($scope, $stateParams, Employees) {
     $scope.employeeRank = Employees.get({employeeId: $stateParams.employeeId, data: 'rank'});
   })
@@ -24,9 +40,6 @@ angular.module('app.controllers', [])
     });
 
   }])
-
-
-
 
   .controller('RankModalController',['$scope', '$ionicModal','$sce', function($scope, $ionicModal, $sce) {
 
