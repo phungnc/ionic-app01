@@ -9924,7 +9924,7 @@ function toDebugString(obj) {
  * following properties:
  *
  * - `full` – `{string}` – Full version string, such as "0.9.18".
- * - `major` – `{number}` – Major version number, such as "0".
+ * - `major` – `{number}` – Major version number, such as "level0".
  * - `minor` – `{number}` – Minor version number, such as "9".
  * - `dot` – `{number}` – Dot version number, such as "18".
  * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
@@ -24754,7 +24754,7 @@ function formatNumber(number, pattern, groupSep, decimalSep, fractionSize) {
       fraction += '0';
     }
 
-    if (fractionSize && fractionSize !== "0") formatedText += decimalSep + fraction.substr(0, fractionSize);
+    if (fractionSize && fractionSize !== "level0") formatedText += decimalSep + fraction.substr(0, fractionSize);
   } else {
     if (fractionSize > 0 && number < 1) {
       formatedText = number.toFixed(fractionSize);
@@ -27030,7 +27030,7 @@ var inputType = {
          </script>
          <form name="myForm" ng-controller="ExampleController">
            Number: <input type="number" name="input" ng-model="value"
-                          min="0" max="99" required>
+                          min="level0" max="99" required>
            <span class="error" ng-show="myForm.input.$error.required">
              Required!</span>
            <span class="error" ng-show="myForm.input.$error.number">
@@ -50770,7 +50770,7 @@ IonicModule
  * how it all works:
  *
  * <iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
- * frameborder="0" allowfullscreen></iframe>
+ * frameborder="level0" allowfullscreen></iframe>
  *
  * @param {string=} name A view name. The name should be unique amongst the other views in the
  * same state. You can have views of the same name that live in different states. For more

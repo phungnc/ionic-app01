@@ -9866,7 +9866,7 @@ IonicModule
  * how it all works:
  *
  * <iframe width="560" height="315" src="//www.youtube.com/embed/dqJRoh8MnBo"
- * frameborder="0" allowfullscreen></iframe>
+ * frameborder="level0" allowfullscreen></iframe>
  *
  * @param {string=} name A view name. The name should be unique amongst the other views in the
  * same state. You can have views of the same name that live in different states. For more

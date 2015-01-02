@@ -1,0 +1,58 @@
+<ion-view title="{{title}}">
+    <ion-content padding="true" class="has-header">
+        <div class="content padding">
+            <p>{{ranks[rankId].description}}</p>
+        </div>
+        <ion-list>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level0">
+            <div class="item-content">
+              <h2>Level 0</h2>
+              <p ng-bind-html="level0" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level1">
+            <div class="item-content">
+              <h2>Level 1</h2>
+              <p ng-bind-html="level1" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level2" checked="checked">
+            <div class="item-content">
+              <h2>Level 2</h2>
+              <p ng-bind-html="level2" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level3">
+            <div class="item-content">
+              <h2>Level 3</h2>
+              <p ng-bind-html="level3" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level4">
+            <div class="item-content">
+              <h2>Level 4</h2>
+              <p ng-bind-html="level4" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+          <label class="item item-radio item-icon-left">
+            <input type="radio" name="group" value="level5">
+            <div class="item-content">
+              <h2>Level 5</h2>
+              <p ng-bind-html="level5" class="wp-normal"></p>
+            </div>
+            <i class="icon radio-icon ion-checkmark positive-icon"></i>
+          </label>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

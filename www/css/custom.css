@@ -1,0 +1,20 @@
+.positive-icon {
+  font-size: 24px;
+  color : #145fd7;
+}
+
+.item-content p.wp-normal {
+  white-space: normal;
+}
+
+label.item-icon-left .item-content {
+  padding-left: 50px;
+}
+
+label.item-icon-left .icon {
+  left:0px;
+}
+
+label.item-icon-left .item-radio .item-content {
+  padding-right: 32px;
+}
