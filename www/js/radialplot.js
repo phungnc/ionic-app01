@@ -13,11 +13,11 @@ ui.d3.RadialPlot = function(element) {
   this._inDrag = false;
   this._increment = 1;
   this._element = element;
-  this._plotRadius = 41;
-  this._innerRadius = 2;
-  this._pointRadius = 1;
+  this._plotRadius = 35;
+  this._innerRadius = 0;
+  this._pointRadius = 2;
   this._overPointRadius = 2;
-  this._padding = 1;
+  this._padding = 20;
   this._interpolation = 'linear-closed';
   this._editable = false;
   this._labelled = true;
@@ -353,8 +353,8 @@ ui.d3.RadialPlot.prototype._setScale = function(scale) {
       .range([this._innerRadius, this._innerRadius + one, this._innerRadius + this._plotRadius]);
   } else {
       this._scale = d3.scale.linear()
-      //.domain([1, 6])
-      .range([1, 5]);
+      .domain([0, 5])
+      .range([0, 35]);
   }
 };
 
@@ -384,7 +384,7 @@ ui.d3.RadialPlot.prototype._setLine = function() {
 
 ui.d3.RadialPlot.prototype._setIncrements = function() {
   var that = this;
-  this._increments = d3.range(0, 101, this._increment);
+  this._increments = d3.range(0, 5, this._increment);
 
   this._incrementArc = d3.svg.arc()
     .innerRadius(function(d) {
