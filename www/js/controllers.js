@@ -30,6 +30,7 @@ var app = angular.module('app.controllers', ['ui.radialplot'])
     $scope.rankId = $stateParams.rankId;
     $scope.title = "Autonomous";
     $scope.ranks = Ranks.query(function(datas) {
+      $scope.checked = datas[$stateParams.rankId].level;
       for ( var i = 0; i < datas[$stateParams.rankId].levels.length; i++ ) {
         $scope.ranks[$stateParams.rankId].levels[i].description = $sce.trustAsHtml(datas[$stateParams.rankId].levels[i].description);
       }

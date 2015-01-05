@@ -6,7 +6,10 @@
         <ion-list>
 
           <label class="item item-radio item-icon-left" ng-repeat="level in ranks[rankId].levels">
-            <input type="radio" name="group" value="{{level.title}}">
+
+            <input type="radio" name="group" value="{{level.title}}" ng-checked="ranks[rankId].level==$index">
+            <!--input ng-if="ranks[rankId].level!=$index" type="radio" name="group" value="{{level.title}}"-->
+
             <div class="item-content">
               <h2>{{level.title}}</h2>
               <p ng-bind-html="level.description" class="wp-normal"></p>
