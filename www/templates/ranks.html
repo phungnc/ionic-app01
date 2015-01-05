@@ -4,15 +4,17 @@
             <p>{{ranks[rankId].description}}</p>
         </div>
         <ion-list>
-          <label class="item item-radio item-icon-left">
-            <input type="radio" name="group" value="level0">
+
+          <label class="item item-radio item-icon-left" ng-repeat="level in ranks[rankId].levels">
+            <input type="radio" name="group" value="{{level.title}}">
             <div class="item-content">
-              <h2>Level 0</h2>
-              <p ng-bind-html="level0" class="wp-normal"></p>
+              <h2>{{level.title}}</h2>
+              <p ng-bind-html="level.description" class="wp-normal"></p>
             </div>
             <i class="icon radio-icon ion-checkmark positive-icon"></i>
           </label>
-          <label class="item item-radio item-icon-left">
+
+          <!--label class="item item-radio item-icon-left">
             <input type="radio" name="group" value="level1">
             <div class="item-content">
               <h2>Level 1</h2>
@@ -51,7 +53,7 @@
               <p ng-bind-html="level5" class="wp-normal"></p>
             </div>
             <i class="icon radio-icon ion-checkmark positive-icon"></i>
-          </label>
+          </label-->
 
         </ion-list>
     </ion-content>

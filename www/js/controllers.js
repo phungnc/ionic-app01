@@ -29,14 +29,10 @@ var app = angular.module('app.controllers', ['ui.radialplot'])
 
     $scope.rankId = $stateParams.rankId;
     $scope.title = "Autonomous";
-    $scope.ranks = Ranks.query(function(ranks) {
-      $scope.level0 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level0);
-      $scope.level1 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level1);
-      $scope.level2 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level2);
-      $scope.level3 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level3);
-      $scope.level4 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level4);
-      $scope.level5 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level5);
-      //$scope.title = ranks[$stateParams.rankId].title;
+    $scope.ranks = Ranks.query(function(datas) {
+      for ( var i = 0; i < datas[$stateParams.rankId].levels.length; i++ ) {
+        $scope.ranks[$stateParams.rankId].levels[i].description = $sce.trustAsHtml(datas[$stateParams.rankId].levels[i].description);
+      }
     });
 
   }])
