@@ -24,7 +24,10 @@
             <div class="item item-divider">Skills</div>
             <div class="item item-body">
                 <ion-list>
-                    <ion-item ng-repeat="skill in employee.skills" >{{skill.title}}</ion-item>
+                    <ion-item ng-repeat="skill in employee.skills" >
+                      {{skill.title}}
+                      <span class="badge badge-assertive">{{skill.level}}</span>
+                      </ion-item>
                 </ion-list>
                 <!--button class="button  button-block">Add</button-->
             </div>
