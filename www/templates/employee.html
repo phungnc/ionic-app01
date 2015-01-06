@@ -11,9 +11,10 @@
 
                 <ion-list>
                   <ion-item ng-repeat="competency in employee.competencies" href="#/ranks/{{$index}}" >
+                   <!--i class="icon ion-home"></i-->
                     {{competency.title}}
                     <span class="badge badge-assertive">{{competency.level}}</span>
-                    </ion-item>
+                  </ion-item>
                 </ion-list>
                 <!--button class="button  button-block">Add</button-->
             </div>
