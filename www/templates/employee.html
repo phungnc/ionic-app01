@@ -2,20 +2,19 @@
     <ion-content padding="true" class="has-header">
 
         <div class="list card">
-            <div class="item item-divider">Rank</div>
+            <div class="item item-divider">Competencies</div>
             <div class="item item-body">
 
-                <div style="border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
-                  <img src="http://spuclan.files.wordpress.com/2012/12/charbtek-281.png?w=320&amp;h=320">
+                <div class="plot">
+                  <radial-plot dsn="dataset_a" point-radius="1.2" editable="true" labelled="true" free="true"></radial-plot>
                 </div>
 
                 <ion-list>
-                  <ion-item href="#/ranks/0">Technical<span class="badge badge-assertive">{{employee.rank.technical}}</span></ion-item>
-                  <ion-item href="#/ranks/1">Autonomous<span class="badge badge-assertive">{{employee.rank.autonomous}}</span></ion-item>
-                  <ion-item href="#/ranks/2">Leadership<span class="badge badge-assertive">{{employee.rank.leadership}}</span></ion-item>
-                  <ion-item href="#/ranks/3">Communication<span class="badge badge-assertive">{{employee.rank.communication}}</span></ion-item>
-                  <ion-item href="#/ranks/4">Training<span class="badge badge-assertive">{{employee.rank.training}}</span></ion-item>
-                  <ion-item href="#/ranks/5">Cooperation<span class="badge badge-assertive">{{employee.rank.cooperation}}</span></ion-item>
+                  <ion-item ng-repeat="competency in employee.competencies" href="#/ranks/{{$index}}" >
+                   <!--i class="icon ion-home"></i-->
+                    {{competency.title}}
+                    <span class="badge badge-assertive">{{competency.level}}</span>
+                  </ion-item>
                 </ion-list>
                 <!--button class="button  button-block">Add</button-->
             </div>
@@ -25,7 +24,10 @@
             <div class="item item-divider">Skills</div>
             <div class="item item-body">
                 <ion-list>
-                    <ion-item ng-repeat="skill in employee.skill" >{{skill.title}}</ion-item>
+                    <ion-item ng-repeat="skill in employee.skills" >
+                      {{skill.title}}
+                      <span class="badge badge-assertive">{{skill.level}}</span>
+                      </ion-item>
                 </ion-list>
                 <!--button class="button  button-block">Add</button-->
             </div>
@@ -34,7 +36,7 @@
             <div class="item item-divider">Projects</div>
             <div class="item item-body">
                 <ion-list>
-                    <ion-item ng-repeat="project in employee.project" >{{project}}</ion-item>
+                    <ion-item ng-repeat="project in employee.projects" >{{project}}</ion-item>
                 </ion-list>
             </div>
         </div>

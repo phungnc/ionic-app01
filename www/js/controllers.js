@@ -1,11 +1,27 @@
-angular.module('app.controllers', [])
-  .controller('EmployeesController', function($scope, Employees) {
+var app = angular.module('app.controllers', ['ui.radialplot'])
+
+  app.controller('EmployeesController', function($scope, Employees) {
     //$scope.searchKey = "";
     $scope.employees = Employees.query();
   })
   .controller('EmployeeController', function($scope, $stateParams, Employees) {
-    $scope.employee = Employees.get({employeeId: $stateParams.employeeId});
+    $scope.employee = Employees.get({employeeId: $stateParams.employeeId}, function(employee) {
+
+
+
+    $scope.dataset_a =  {
+      d0: { id: 0, name: 'Technical', value: parseInt(employee.competencies[0].level) - 2 },
+      d1: { id: 1, name: 'Autonomous', value: parseInt(employee.competencies[1].level)  },
+      d2: { id: 2, name: 'Leadership', value: parseInt(employee.competencies[2].level) },
+      d3: { id: 3, name: 'Communication', value: parseInt(employee.competencies[3].level) },
+      d4: { id: 4, name: 'Training', value: parseInt(employee.competencies[4].level)  },
+      d5: { id: 5, name: 'Cooperation', value: parseInt(employee.competencies[5].level) },
+      d6: { id: 6, name: 'Experience', value: parseInt(employee.competencies[6].level)  }
+    };
+
+    });
   })
+
   .controller('EmployeeRankController', function($scope, $stateParams, Employees) {
     $scope.employeeRank = Employees.get({employeeId: $stateParams.employeeId, data: 'rank'});
   })
@@ -13,20 +29,14 @@ angular.module('app.controllers', [])
 
     $scope.rankId = $stateParams.rankId;
     $scope.title = "Autonomous";
-    $scope.ranks = Ranks.query(function(ranks) {
-      $scope.level0 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level0);
-      $scope.level1 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level1);
-      $scope.level2 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level2);
-      $scope.level3 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level3);
-      $scope.level4 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level4);
-      $scope.level5 = $sce.trustAsHtml(ranks[$stateParams.rankId].level.level5);
-      //$scope.title = ranks[$stateParams.rankId].title;
+    $scope.ranks = Ranks.query(function(datas) {
+      $scope.checked = datas[$stateParams.rankId].level;
+      for ( var i = 0; i < datas[$stateParams.rankId].levels.length; i++ ) {
+        $scope.ranks[$stateParams.rankId].levels[i].description = $sce.trustAsHtml(datas[$stateParams.rankId].levels[i].description);
+      }
     });
 
   }])
-
-
-
 
   .controller('RankModalController',['$scope', '$ionicModal','$sce', function($scope, $ionicModal, $sce) {
 
